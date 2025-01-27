@@ -23,7 +23,7 @@ jobs:
       RELEASE_KEYSTORE_CONTENT_BASE64: ${{ secrets.ANDROID_RELEASE_KEYSTORE_CONTENT_BASE64 }}
       SERVICE_ACCOUNT_JSON: ${{ secrets.ANDROID_SERVICE_ACCOUNT_JSON }}
     with:
-      owntube_source: OwnTube-tv/web-client
+      owntube_source: mykhailodanilenko/web-client
       use_parent_repo_customizations: true
 
   generate_android_tv_bundle:
