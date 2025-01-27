@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
   generate_android_bundle:
-    uses: mykhailodanilenko/web-client/.github/workflows/google_play_initial_bundle.yml@feature/setup_google_play
+    uses: mykhailodanilenko/web-client/.github/workflows/google_play_initial_bundle.yml@feature/google-play-setup
     secrets:
       KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
       SIGNING_KEY_ALIAS: ${{ secrets.ANDROID_SIGNING_KEY_ALIAS }}
@@ -29,7 +29,7 @@ jobs:
 
   generate_android_tv_bundle:
     if: ${{ github.event.inputs.isTV == 'true' }}
-    uses: mykhailodanilenko/web-client/.github/workflows/google_play_initial_bundle.yml@feature/setup_google_play
+    uses: mykhailodanilenko/web-client/.github/workflows/google_play_initial_bundle.yml@feature/google-play-setup
     secrets:
       KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
       SIGNING_KEY_ALIAS: ${{ secrets.ANDROID_SIGNING_KEY_ALIAS }}
