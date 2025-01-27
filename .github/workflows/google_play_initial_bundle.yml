@@ -37,5 +37,5 @@ jobs:
       SERVICE_ACCOUNT_JSON: ${{ secrets.ANDROID_SERVICE_ACCOUNT_JSON }}
     with:
       isTV: true
-      owntube_source: OwnTube-tv/web-client
+      owntube_source: mykhailodanilenko/web-client@feature/google-play-setup
       use_parent_repo_customizations: true
