@@ -8,7 +8,7 @@ on:
         description: "Bundle for Android TV as well?"
         type: boolean
 
-# Allow only onee concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: "owntube-build"
@@ -18,11 +18,11 @@ jobs:
   generate_android_bundle:
     uses: mykhailodanilenko/web-client/.github/workflows/google_play_initial_bundle.yml@feature/google-play-setup
     secrets:
-      KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
-      SIGNING_KEY_ALIAS: ${{ secrets.ANDROID_SIGNING_KEY_ALIAS }}
-      SIGNING_KEY_PASSWORD: ${{ secrets.ANDROID_SIGNING_KEY_PASSWORD }}
-      RELEASE_KEYSTORE_CONTENT_BASE64: ${{ secrets.ANDROID_RELEASE_KEYSTORE_CONTENT_BASE64 }}
-      SERVICE_ACCOUNT_JSON: ${{ secrets.ANDROID_SERVICE_ACCOUNT_JSON }}
+      ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+      ANDROID_SIGNING_KEY_ALIAS: ${{ secrets.ANDROID_SIGNING_KEY_ALIAS }}
+      ANDROID_SIGNING_KEY_PASSWORD: ${{ secrets.ANDROID_SIGNING_KEY_PASSWORD }}
+      ANDROID_RELEASE_KEYSTORE_CONTENT_BASE64: ${{ secrets.ANDROID_RELEASE_KEYSTORE_CONTENT_BASE64 }}
+      ANDROID_SERVICE_ACCOUNT_JSON: ${{ secrets.ANDROID_SERVICE_ACCOUNT_JSON }}
     with:
       owntube_source: OwnTube-tv/web-client
       use_parent_repo_customizations: true
@@ -31,11 +31,11 @@ jobs:
     if: ${{ github.event.inputs.isTV == 'true' }}
     uses: mykhailodanilenko/web-client/.github/workflows/google_play_initial_bundle.yml@feature/google-play-setup
     secrets:
-      KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
-      SIGNING_KEY_ALIAS: ${{ secrets.ANDROID_SIGNING_KEY_ALIAS }}
-      SIGNING_KEY_PASSWORD: ${{ secrets.ANDROID_SIGNING_KEY_PASSWORD }}
-      RELEASE_KEYSTORE_CONTENT_BASE64: ${{ secrets.ANDROID_RELEASE_KEYSTORE_CONTENT_BASE64 }}
-      SERVICE_ACCOUNT_JSON: ${{ secrets.ANDROID_SERVICE_ACCOUNT_JSON }}
+      ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+      ANDROID_SIGNING_KEY_ALIAS: ${{ secrets.ANDROID_SIGNING_KEY_ALIAS }}
+      ANDROID_SIGNING_KEY_PASSWORD: ${{ secrets.ANDROID_SIGNING_KEY_PASSWORD }}
+      ANDROID_RELEASE_KEYSTORE_CONTENT_BASE64: ${{ secrets.ANDROID_RELEASE_KEYSTORE_CONTENT_BASE64 }}
+      ANDROID_SERVICE_ACCOUNT_JSON: ${{ secrets.ANDROID_SERVICE_ACCOUNT_JSON }}
     with:
       isTV: true
       owntube_source: OwnTube-tv/web-client
