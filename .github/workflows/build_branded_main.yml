@@ -128,6 +128,37 @@ jobs:
       owntube_source: OwnTube-tv/web-client
       use_parent_repo_customizations: true
 
+  google_play_mobile:
+    needs: [ build_info, customizations_setup ]
+    uses: mykhailodanilenko/web-client/.github/workflows/google_play.yml@feature/setup_google_play
+    if: ${{ github.event.inputs.google_play_track != 'none' }}
+    secrets:
+      KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+      SIGNING_KEY_ALIAS: ${{ secrets.ANDROID_SIGNING_KEY_ALIAS }}
+      SIGNING_KEY_PASSWORD: ${{ secrets.ANDROID_SIGNING_KEY_PASSWORD }}
+      RELEASE_KEYSTORE_CONTENT_BASE64: ${{ secrets.ANDROID_RELEASE_KEYSTORE_CONTENT_BASE64 }}
+      SERVICE_ACCOUNT_JSON: ${{ secrets.ANDROID_SERVICE_ACCOUNT_JSON }}
+    with:
+      customizations_env_content: ${{ needs.customizations_setup.outputs.CUSTOMIZATIONS_ENV_CONTENT }}
+      build_info: ${{ needs.build_info.outputs.BUILD_INFO }}
+      track: ${{ github.event.inputs.google_play_track }}
+
+  google_play_tv:
+    needs: [ build_info, customizations_setup ]
+    uses: mykhailodanilenko/web-client/.github/workflows/google_play.yml@feature/setup_google_play
+    if: ${{ github.event.inputs.google_play_track != 'none' && github.event.inputs.google_play_upload_tv == 'true' }}
+    secrets:
+      KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+      SIGNING_KEY_ALIAS: ${{ secrets.ANDROID_SIGNING_KEY_ALIAS }}
+      SIGNING_KEY_PASSWORD: ${{ secrets.ANDROID_SIGNING_KEY_PASSWORD }}
+      RELEASE_KEYSTORE_CONTENT_BASE64: ${{ secrets.ANDROID_RELEASE_KEYSTORE_CONTENT_BASE64 }}
+      SERVICE_ACCOUNT_JSON: ${{ secrets.ANDROID_SERVICE_ACCOUNT_JSON }}
+    with:
+      customizations_env_content: ${{ needs.customizations_setup.outputs.CUSTOMIZATIONS_ENV_CONTENT }}
+      build_info: ${{ needs.build_info.outputs.BUILD_INFO }}
+      track: ${{ github.event.inputs.google_play_track }}
+      isTV: true
+
   testflight_ios:
     if: ${{ github.event.inputs.upload_ios_to_testflight == 'true' }}
     needs: [build_info, customizations_setup, choose_macos_runner]
