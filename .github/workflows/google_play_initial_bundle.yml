@@ -28,7 +28,7 @@ jobs:
 
   generate_android_tv_bundle:
     if: ${{ github.event.inputs.isTVNeeded == 'true' }}
-    uses: mykhailodanilenko/web-client/.github/workflows/google_play_initial_bundle.yml@feature/google-play-setup
+    uses: mykhailodanilenko/web-client/.github/workflows/google_play_initial_bundle.yml
     secrets:
       KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
       SIGNING_KEY_ALIAS: ${{ secrets.ANDROID_SIGNING_KEY_ALIAS }}
