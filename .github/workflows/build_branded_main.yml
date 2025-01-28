@@ -136,7 +136,7 @@ jobs:
 
   build_android_tv_apk:
     needs: [build_info, customizations_setup]
-    uses: OwnTube-tv/web-client/.github/workflows/build_android_tv_apk.yml@main
+    uses: mykhailodanilenko/web-client/.github/workflows/build_android_tv_apk.yml@feature/google-play-setup
     with:
       customizations_env_content: ${{ needs.customizations_setup.outputs.CUSTOMIZATIONS_ENV_CONTENT }}
       build_info: ${{ needs.build_info.outputs.BUILD_INFO }}
