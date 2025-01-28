@@ -131,7 +131,7 @@ jobs:
     with:
       customizations_env_content: ${{ needs.customizations_setup.outputs.CUSTOMIZATIONS_ENV_CONTENT }}
       build_info: ${{ needs.build_info.outputs.BUILD_INFO }}
-      owntube_source: OwnTube-tv/web-client
+      owntube_source: mykhailodanilenko/web-client
       use_parent_repo_customizations: true
 
   build_android_tv_apk:
@@ -140,7 +140,7 @@ jobs:
     with:
       customizations_env_content: ${{ needs.customizations_setup.outputs.CUSTOMIZATIONS_ENV_CONTENT }}
       build_info: ${{ needs.build_info.outputs.BUILD_INFO }}
-      owntube_source: OwnTube-tv/web-client
+      owntube_source: mykhailodanilenko/web-client
       use_parent_repo_customizations: true
 
   google_play_mobile:
@@ -156,7 +156,7 @@ jobs:
     with:
       customizations_env_content: ${{ needs.customizations_setup.outputs.CUSTOMIZATIONS_ENV_CONTENT }}
       build_info: ${{ needs.build_info.outputs.BUILD_INFO }}
-      owntube_source: OwnTube-tv/web-client
+      owntube_source: mykhailodanilenko/web-client
       track: ${{ github.event.inputs.google_play_track }}
 
   google_play_tv:
@@ -172,7 +172,7 @@ jobs:
     with:
       customizations_env_content: ${{ needs.customizations_setup.outputs.CUSTOMIZATIONS_ENV_CONTENT }}
       build_info: ${{ needs.build_info.outputs.BUILD_INFO }}
-      owntube_source: OwnTube-tv/web-client
+      owntube_source: mykhailodanilenko/web-client
       track: ${{ github.event.inputs.google_play_track }}
       isTV: true
 
