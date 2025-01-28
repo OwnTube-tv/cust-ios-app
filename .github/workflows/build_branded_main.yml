@@ -145,7 +145,7 @@ jobs:
 
   google_play_mobile:
     needs: [ build_info, customizations_setup ]
-    uses: mykhailodanilenko/web-client/.github/workflows/google_play.yml@feature/setup_google_play
+    uses: mykhailodanilenko/web-client/.github/workflows/google_play.yml@feature/google-play-setup
     if: ${{ github.event.inputs.google_play_track != 'none' }}
     secrets:
       KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
@@ -160,7 +160,7 @@ jobs:
 
   google_play_tv:
     needs: [ build_info, customizations_setup ]
-    uses: mykhailodanilenko/web-client/.github/workflows/google_play.yml@feature/setup_google_play
+    uses: mykhailodanilenko/web-client/.github/workflows/google_play.yml@feature/google-play-setup
     if: ${{ github.event.inputs.google_play_track != 'none' && github.event.inputs.google_play_upload_tv == 'true' }}
     secrets:
       KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
